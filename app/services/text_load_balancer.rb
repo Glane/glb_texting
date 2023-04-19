@@ -1,6 +1,4 @@
 class TextLoadBalancer
-  include TextMessageStateMachine
-  include TextProviderStateMachine
 
   def call(text_message)
     reset_providers

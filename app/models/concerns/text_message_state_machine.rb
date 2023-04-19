@@ -4,7 +4,7 @@ module TextMessageStateMachine
   included do
     include AASM
 
-    aasm do
+    aasm column: :state do
       state :requested, initial: true
       state :pending # request received, waiting for callback response
       state :retrying # provider failed, trying other providers

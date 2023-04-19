@@ -3,6 +3,7 @@ module TextProviderStateMachine
 
   included do
     include AASM
+
     aasm column: :state do
       state :online, initial: true
       state :offline # provider offline

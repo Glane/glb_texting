@@ -10,4 +10,4 @@ end
 
 # curl -H "Content-Type: application/json" -d '{"to_number": "8027341583", "message": "This is my Frisbee message", "callback_url": "https://27c4-104-12-203-65.ngrok-free.app/text_message_responses"}' https://27c4-104-12-203-65.ngrok-free.app/text_messages
 
-# curl -X POST -H "Content-Type: application/json" -d '{"message": "This is my wonderful"}' http://localhost:3000/text_messages -v
+# curl -H "Content-Type: application/json" -d '{"message_id": "802", "status": "delivered"}' http://localhost:3000/text_message_responses -v

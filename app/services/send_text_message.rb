@@ -1,8 +1,6 @@
 class SendTextMessage
   require 'uri'
   require 'net/http'
-  include TextMessageStateMachine
-  include TextProviderStateMachine
 
   def call(text_message, provider)
     @text_message = text_message

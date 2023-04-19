@@ -2,6 +2,7 @@ class TextMessageResponsesController < ApplicationController
   before_action :set_message_and_status, only: :create
 
   def create
+    binding.irb
     text_message = TextMessage.find_by(message_id: @message_id)
     text_message.update!(state: @status)
   end

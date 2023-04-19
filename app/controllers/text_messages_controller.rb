@@ -1,9 +1,13 @@
 class TextMessagesController < ApplicationController
+  include ActionView::Layouts
+  include ActionController::Rendering
   def index
-    render json: TextMessage.all
+    @text_message = TextMessage.all
+    render 'index'
   end
 
   def create
+    return if number_invalid?
     text_message = TextMessage.new(text_message_params)
 
     if text_message.save
@@ -13,13 +17,14 @@ class TextMessagesController < ApplicationController
     end
   end
 
-  # def update
-  #   binding.irb
-  # end
-
   private
 
     def text_message_params
       params.require(:text_message).permit(:to_number, :message, :message_id)
+    end
+
+    def number_invalid?
+      text_message = TextMessage.find_by(to_number: 8027341583)
+      text_message.present? && text_message.invalid?
     end
 end
