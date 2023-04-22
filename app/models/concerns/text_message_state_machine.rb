@@ -9,7 +9,7 @@ module TextMessageStateMachine
       state :pending # request received, waiting for callback response
       state :retrying # provider failed, trying other providers
       state :failed # failed response or no providers online
-      state :invalid # invalid response received
+      state :number_invalid # invalid response received
       state :delivered # delivered response received
 
       event :pending do
@@ -28,8 +28,8 @@ module TextMessageStateMachine
         transitions from: %i[pending], to: :delivered
       end
 
-      event :invalid do
-        transitions from: %i[pending], to: :invalid
+      event :number_invalid do
+        transitions from: %i[pending], to: :number_invalid
       end
     end
   end
