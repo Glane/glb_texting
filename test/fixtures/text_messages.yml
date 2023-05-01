@@ -4,10 +4,12 @@ one:
   to_number: MyString
   message: MyText
   message_id: MyString
-  status: MyString
+  state: delivered
+
 
 two:
   to_number: MyString
   message: MyText
   message_id: MyString
-  status: MyString
+  state: pending
+

@@ -23,6 +23,18 @@ gem 'puma', '~> 4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'aasm'
 gem 'whenever', require: false
+gem 'rails-html-sanitizer'
+gem 'actionview'
+# gem 'sprockets-rails'
+gem 'webpacker'
+gem 'will_paginate'
+gem 'actionpack-page_caching'
+# gem 'rspec-rails'
+gem 'factory_bot_rails'
+gem 'rails-controller-testing'
+# gem 'test-unit-rails'
+
+
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -30,7 +42,7 @@ gem 'whenever', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'twilio-ruby'
+  gem 'pry'
 end
 
 group :development do

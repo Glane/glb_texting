@@ -1,0 +1,37 @@
+<%= form_with(model: @text_message, url: text_messages_path, local: true) do |form| %>
+  <% if @text_message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@text_message.errors.count, "error") %> prohibited this text message from being sent:</h2>
+
+      <ul>
+        <% @text_message.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group form-item">
+    <%= form.label :to_number, 'Who would you like to text?' %>
+    <%= form.text_field :to_number, class: "form-control number-field",
+                                    placeholder: "enter phone number" %>
+  </div>
+
+  <div class="form-group form-item">
+    <%= form.label :message, 'What message would you like to send?' %>
+    <%= form.text_area :message, class: "form-control message-field",
+                                 placeholder: "enter message" %>
+  </div>
+
+  <div class="form-group form-item">
+    <%= form.label :callback_url, 'What is the callback url?' %>
+    <%= form.text_field :callback_url, class: "form-control number-field",
+                                       placeholder: "enter callback url" %>
+  </div>
+
+  <div class="actions text-center mt-4">
+    <%= form.submit "Send Text", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+

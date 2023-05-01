@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row btn-group float-end">
+    <%= link_to "Admin", text_messages_path, class: "btn btn-primary" %>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-6 offset-md-3 col-sm-12">
+      <h1 class="text-center">Text Provider<h1>
+      <%= form_for @text_provider do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :url %>
+          <%= f.text_field :url, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :allocation %>
+          <%= f.number_field :allocation, class: "form-control" %>
+        </div>
+        <div class="form-check">
+          <%= f.label :active, class: "form-check-label" %>
+          <%= f.check_box :active, class: "form-check-input" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :count %>
+          <%= f.number_field :count, class: "form-control" %>
+        </div>
+        <%= f.submit "Save", class: "mt-5 btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

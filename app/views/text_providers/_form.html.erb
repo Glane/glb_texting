@@ -1,0 +1,25 @@
+<% url = @text_provider.persisted? ? text_provider_path(@text_provider) : text_providers_path %>
+<% form_method = @text_provider.persisted? ? :patch : :post %>
+<%= form_for @text_provider, url: url, method: form_method do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :url %>
+    <%= f.text_field :url, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :allocation %>
+    <%= f.number_field :allocation, class: "form-control" %>
+  </div>
+  <div class="form-check">
+    <%= f.label :active, class: "form-check-label" %>
+    <%= f.check_box :active, class: "form-check-input" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :count %>
+    <%= f.number_field :count, class: "form-control" %>
+  </div>
+  <%= f.submit "Save", class: "mt-5 btn btn-primary" %>
+<% end %>

@@ -1,0 +1,51 @@
+// Import Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Your custom styles here
+.form-item {
+  padding-top: 30px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.no-messages {
+  padding-top: 30px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.text-center table {
+  font-size: 15px;
+}
+
+.paginate {
+  font-size: 15px;
+  text-align: center;
+}
+
+.edit_text_provider label{
+  font-size: 20px;
+  text-align: center;
+}
+
+.new_text_provider label{
+  font-size: 20px;
+  text-align: center;
+}
+
+.edit_text_provider .form-check-input {
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.provider_table {
+  padding-top: 90px;
+}
+
+.message_table {
+  padding-top: 90px;
+}
+
+.btn-group {
+  width: 150px !important;
+}

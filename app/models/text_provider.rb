@@ -1,21 +1,24 @@
 class TextProvider < ApplicationRecord
   include TextProviderStateMachine
   include AASM
+    validates :name, presence: true
+    validates :url, presence: true, format: URI::regexp(%w[http https])
+    validates :allocation, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 1 }
 
-  scope :active, -> { where(active: true) }
-  scope :active_and_online, -> { where(active: true, state: 'online') }
+    scope :active, -> { where(active: true) }
+    scope :active_and_online, -> { where(active: true, state: 'online') }
 
-  def self.load_selected_provider
-    total_count = TextProvider.active.sum(:count)
-    provider_id = load_calculation(total_count).max_by { |array| array.last }.first
-    TextProvider.find_by(id: provider_id)
-  end
+    def self.load_selected_provider
+      total_count = TextProvider.active.sum(:count)
+      provider_id = load_calculation(total_count).max_by { |array| array.last }.first
+      TextProvider.find_by(id: provider_id)
+    end
 
-  def self.reset_providers
-    active.each { |provider| provider.up! }
-  end
+    def self.reset_providers
+      active.each { |provider| provider.up! }
+    end
 
-  private
+    private
 
     def self.load_calculation(total_count)
       TextProvider.active.each_with_object([]) do |provider, array|

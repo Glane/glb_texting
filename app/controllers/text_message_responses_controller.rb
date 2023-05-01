@@ -1,8 +1,7 @@
 class TextMessageResponsesController < ApplicationController
-  before_action :set_message_and_status, only: :create
+  before_action :set_message_and_status
 
   def create
-    binding.irb
     text_message = TextMessage.find_by(message_id: @message_id)
     text_message.update!(state: @status)
   end
@@ -15,6 +14,11 @@ class TextMessageResponsesController < ApplicationController
 
     def set_message_and_status
       @message_id = text_message_response_params['message_id']
-      @status = text_message_response_params['status']
+      @status = find_status_name
+    end
+
+    def find_status_name
+      state = text_message_response_params['status']
+      state == 'invalid' ? 'number_invalid' : state
     end
 end

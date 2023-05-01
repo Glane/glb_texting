@@ -21,7 +21,7 @@ module TextMessageStateMachine
       end
 
       event :fail do
-        transitions from: %i[pending], to: :failed
+        transitions from: %i[requested pending retrying], to: :failed
       end
 
       event :deliver do
@@ -29,7 +29,7 @@ module TextMessageStateMachine
       end
 
       event :number_invalid do
-        transitions from: %i[pending], to: :number_invalid
+        transitions from: %i[requested pending], to: :number_invalid
       end
     end
   end
