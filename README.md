@@ -21,4 +21,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
+Hi there! 
+Thanks for visiting Laney's Texting Service !  I hope you enjoy your stay.
+
+
+
 * ...
