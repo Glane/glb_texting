@@ -16,7 +16,36 @@
 // const imagePath = (name) => images(name, true)
 
 console.log('Hello World from Webpacker')
+
 import '../stylesheets/application.scss';
+import Rails from "@rails/ujs";
 import './bootstrap';
-require("@rails/ujs").start()
+Rails.start();
+
+function observeMessageStateChanges() {
+  console.log('jQuery version:', $.fn.jquery);
+
+  const targetNode = $('.text-center').get(0);
+
+  if (targetNode) {
+    const observer = new MutationObserver(() => {
+      location.reload();
+    });
+
+    observer.observe(targetNode, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+    });
+  } else {
+    console.log("Element with .text-center not found");
+  }
+}
+
+$(document).ready(() => {
+  if (window.location.pathname.endsWith('/text_messages')) {
+    observeMessageStateChanges();
+  }
+});
+
 
