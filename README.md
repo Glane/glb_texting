@@ -12,6 +12,10 @@ Here are the steps to get the Service runnning.
  
  `bundle install`
  
+ `yarn`
+ 
+ `rails assets:precompile`
+ 
  `rails db:migrate`
  
  `rails server`
@@ -39,6 +43,8 @@ Open a browser and proceed to http://localhost:3000, Voila! (hopefully you see s
 Before you start sending messages you need to set up your Providers.  Click the 'Manage Providers' button.  Then the 'New Provider' button.  Please enter the following info to add two Providers.  Don't worry, you can edit them if you make a mistake.
 
 1 - name: 'Provider 1' url: 'https://mock-text-provider.parentsquare.com/provider1' allocation: 0.3 active: checked, count: 0
+
+
 2 - name: 'Provider 2' url: 'https://mock-text-provider.parentsquare.com/provider2' allocation: 0.7 active: checked, count: 0
 
 
