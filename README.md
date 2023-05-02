@@ -14,9 +14,9 @@ Here are the steps to get the Service runnning.
 
 Open a terminal window and run the following commands to clone the app locally.
  
-  `git clone https://github.com/Glane/glb_texting.git`
+ `git clone https://github.com/Glane/glb_texting.git`
  
-  `cd glb_texting`
+ `cd glb_texting`
  
  `bundle install`
  
@@ -52,12 +52,18 @@ Before you start sending messages you need to set up your Providers.  Click the 
 Go back to 'See Messages' and hit the 'Send A New Message' button.  Go ahead, send a message!  Enter a phone number, a message, and the callback_url you created a few minutes ago, and hit send.  Of course, it won't really go anywhere, but you will hopefully get an ID and a Status in return.  Go to 'See Messages" to find out.  Hopefully you are off and running to send messages and follow their status.  Here is a list of what each Status indicates.
 
 
-requested - The Message has been requested to send (has a number, message, and callback_url).
-retrying - The first Provider was down(500 responce).  It will try the other Providers that are Active until either one works or they all fail.
-failed - All Active Providers were tried and none of them responded (all down).
-pending - The message was sent and a message_id was returned.  This message is waiting for a callback status.
-delivered - This message received a callback with a status of 'delivered'.
-number_invalid - This message either received a callback wiht a status of 'Invalid'
+**requested** - The Message has been requested to send (has a number, message, and callback_url).
+
+**retrying** - The first Provider was down(500 responce).  It will try the other Providers that are Active until either one works or they all fail.
+
+**failed** - Either all Active Providers were tried and none of them responded (all down indicated by lack of message_id) or the callback status was 'failed"
+
+**pending** - The message was sent and a message_id was returned.  This message is waiting for a callback status.
+
+**delivered** - This message received a callback with a status of 'delivered'.
+
+**number_invalid** - This message either received a callback wiht a status of 'invalid' or the same number received a callback status of 'invalid" from a previous message.  note: Rails objected to a state named 'invalid' so I renamed it 'number_invalid' after it came in.
+
 
 
 
