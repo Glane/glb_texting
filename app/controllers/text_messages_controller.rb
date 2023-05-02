@@ -1,4 +1,4 @@
-class TextMessagesController < ApplicationController
+                                class TextMessagesController < ApplicationController
   include ActionView::Layouts
   include ActionController::Rendering
   before_action :set_text_messages
@@ -24,11 +24,15 @@ class TextMessagesController < ApplicationController
     else
       if @text_message.save
         send_message
-        render action: :index, layout: 'application'
+        render action: :show, layout: 'application'
       else
-        render action: :index, layout: 'application'
+        render action: :show, layout: 'application'
       end
     end
+  end
+
+  def show
+    @text_message = TextMessage.find_by(id: params[:id])
   end
 
   private

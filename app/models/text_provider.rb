@@ -2,8 +2,7 @@ class TextProvider < ApplicationRecord
   include TextProviderStateMachine
   include AASM
     validates :name, presence: true
-    validates :url, presence: true, format: URI::regexp(%w[http https])
-    validates :allocation, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 1 }
+    validates :url, presence: true
 
     scope :active, -> { where(active: true) }
     scope :active_and_online, -> { where(active: true, state: 'online') }
