@@ -24,6 +24,19 @@ Things you may want to cover:
 Hi there! 
 Thanks for visiting Laney's Texting Service !  I hope you enjoy your stay.
 
+Here are the steps to get the Service runnning:
+ - open a terminal window and run the following commands:
+ 
+ `git clone https://github.com/Glane/glb_texting.git`
+ 
+ `cd glb_texting`
+ 
+ `rails server`
+ 
+ - open another terminal window and cd to the same directory.
+ 
+ - open a browser and proceed to http://localhost:3000
+
 
 
 * ...
