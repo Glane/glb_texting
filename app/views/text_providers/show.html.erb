@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row mt-5">
+    <% if @text_provider.errors.any? %>
+      <div class="col-12 text-center">
+        <div class='display_errors'><%= @text_provider.errors.messages %></div>
+        <div><%= link_to 'New Provider',
+                          new_text_provider_path,
+                          class: 'btn btn-primary' %></div>
+      </div>
+    <% else %>
+      <div class="col-12 text-center">
+        <h1>Voila!<h1>
+        <h3>Your Provider has been added.<h3>
+        <div class="mt-5"><%= link_to "See Messages",
+                              text_messages_path,
+                              class: "btn btn-primary" %></div>
+        <div class="mt-5"><%= link_to "See Providers",
+                              text_providers_path,
+                               class: "btn btn-primary" %></div>
+      </div>
+    <% end %>
+  </div>
+</div>

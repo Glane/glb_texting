@@ -18,7 +18,8 @@ class TextProvidersController < ApplicationController
     if @text_provider.save
       render action: :index, layout: 'application'
     else
-      render action: :index, layout: 'application'
+      @text_provider.errors.add(:base, 'there was a problem, please try again')
+      render action: :show, layout: 'application'
     end
   end
 

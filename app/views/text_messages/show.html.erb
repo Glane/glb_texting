@@ -1,9 +1,18 @@
 <div class="container">
   <div class="row mt-5">
-    <div class="col-12 text-center">
-      <h1>Voila!<h1>
-      <h3>Your Message is on it's way.<h3>
-      <div class="mt-5"><%= link_to "See Messages", text_messages_path, class: "btn btn-primary" %></div>
-    </div>
+    <% if @text_message.errors.any? %>
+      <div class="col-12 text-center">
+        <div class='display_errors'><%= @text_message.errors.messages %></div>
+        <div><%= link_to 'Send A New Message',
+                          new_text_message_path,
+                          class: 'btn btn-primary' %></div>
+      </div>
+    <% else %>
+      <div class="col-12 text-center">
+        <h1>Voila!<h1>
+        <h3>Your Message is on it's way.<h3>
+        <div class="mt-5"><%= link_to "See Messages", text_messages_path, class: "btn btn-primary" %></div>
+      </div>
+    <% end %>
   </div>
 </div>
