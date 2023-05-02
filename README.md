@@ -1,18 +1,10 @@
 # README
 
-Things you may want to cover:
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-
 Hi there! 
-Thanks for visiting Laney's Texting Service !  I hope you enjoy your stay.
+Thanks for visiting Laney's Texting Service!  I hope you enjoy your stay.
 Here are the steps to get the Service runnning.
 
-
-Open a terminal window and run the following commands to clone the app locally.
+- Open a terminal window and run the following commands to clone the app locally.
  
  `git clone https://github.com/Glane/glb_texting.git`
  
@@ -25,15 +17,16 @@ Open a terminal window and run the following commands to clone the app locally.
  `rails server`
  
 
-Download ngrok at https://ngrok.com/download
 
-Open a second terminal window and run the following:
+- Download ngrok at https://ngrok.com/download (if you do not have it already)
+
+- Open a second terminal window and run the following:
 
 `./ngrok http 3000`
 
 You should see an ngrok session pop up. To the right of the word 'forwarding' you will see a 'ngrok-url' -> http://localhost:3000
-You will need this to create your callback_url for your text messages as follows:
-YOUR CALLBACK URL: 'ngrok-url' + '/text_message_responses'
+You will need this 'ngrok-url' to create your callback_url for your text messages as follows:
+**YOUR CALLBACK URL: 'ngrok-url' + '/text_message_responses'**
 
 for example, if your 'ngrok-url' is https://a23f-104-12-203-65.ngrok-free.app, 
 
