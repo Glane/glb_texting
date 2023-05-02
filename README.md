@@ -1,42 +1,72 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
 Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
 
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
 Hi there! 
 Thanks for visiting Laney's Texting Service !  I hope you enjoy your stay.
+Here are the steps to get the Service runnning.
 
-Here are the steps to get the Service runnning:
- - open a terminal window and run the following commands:
+
+Open a terminal window and run the following commands to clone the app locally.
  
- `git clone https://github.com/Glane/glb_texting.git`
+  `git clone https://github.com/Glane/glb_texting.git`
  
- `cd glb_texting`
+  `cd glb_texting`
+ 
+ `bundle install`
+ 
+ `rails db:migrate`
  
  `rails server`
  
- - open another terminal window and cd to the same directory.
- 
- - open a browser and proceed to http://localhost:3000
 
+Download ngrok at https://ngrok.com/download
+
+Open a second terminal window and run the following:
+
+`./ngrok http 3000`
+
+You should see an ngrok session pop up. To the right of the word 'forwarding' you will see a 'ngrok-url' -> http://localhost:3000
+You will need this to create your callback_url for your text messages as follows:
+YOUR CALLBACK URL: 'ngrok-url' + '/text_message_responses'
+
+for example, if your 'ngrok-url' is https://a23f-104-12-203-65.ngrok-free.app, 
+
+your callback_url will be https://a23f-104-12-203-65.ngrok-free.app/text_message_responses
+
+
+
+Open a browser and proceed to http://localhost:3000, Voila! (hopefully you see something)
+
+Before you start sending messages you need to set up your Providers.  Click the 'Manage Providers' button.  Then the 'New Provider' button.  Please enter the following info to add two Providers.  Don't worry, you can edit them if you make a mistake.
+
+1 - name: 'Provider 1' url: 'https://mock-text-provider.parentsquare.com/provider1' allocation: 0.3 active: checked, count: 0
+2 - name: 'Provider 2' url: 'https://mock-text-provider.parentsquare.com/provider2' allocation: 0.7 active: checked, count: 0
+
+
+Go back to 'See Messages' and hit the 'Send A New Message' button.  Go ahead, send a message!  Enter a phone number, a message, and the callback_url you created a few minutes ago, and hit send.  Of course, it won't really go anywhere, but you will hopefully get an ID and a Status in return.  Go to 'See Messages" to find out.  Hopefully you are off and running to send messages and follow their status.  Here is a list of what each Status indicates.
+
+
+requested - The Message has been requested to send (has a number, message, and callback_url).
+retrying - The first Provider was down(500 responce).  It will try the other Providers that are Active until either one works or they all fail.
+failed - All Active Providers were tried and none of them responded (all down).
+pending - The message was sent and a message_id was returned.  This message is waiting for a callback status.
+delivered - This message received a callback with a status of 'delivered'.
+number_invalid - This message either received a callback wiht a status of 'Invalid'
+
+
+
+Other things
+
+
+
+Open a third terminal window and cd into the project directory again.
+`cd glb_texting`
 
 
 * ...
