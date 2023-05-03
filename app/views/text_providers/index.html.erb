@@ -24,7 +24,7 @@
             <tbody>
               <% @text_providers.each do |provider| %>
                 <tr>
-                  <td><%= link_to provider.name, text_provider_path(provider) %></td>
+                  <td><%= provider.name %></td>
                   <td><%= provider.allocation %></td>
                   <td><%= provider.active %></td>
                   <td><%= provider.state %></td>
