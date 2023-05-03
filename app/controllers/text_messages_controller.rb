@@ -26,7 +26,7 @@
         send_message
         render action: :show, layout: 'application'
       else
-        @text_message.errors.add(:base, 'there was a problem, please try again')
+        @text_message.errors.add(:base, 'There was a problem, please try again')
         render action: :show, layout: 'application'
       end
     end

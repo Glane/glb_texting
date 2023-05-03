@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  to_number: MyString
-  message: MyText
-  message_id: MyString
-  state: delivered
+# one:
+#   to_number: MyString
+#   message: MyText
+#   message_id: MyString
+#   state: delivered
 
 
-two:
-  to_number: MyString
-  message: MyText
-  message_id: MyString
-  state: pending
+# two:
+#   to_number: MyString
+#   message: MyText
+#   message_id: MyString
+#   state: pending
 

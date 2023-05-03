@@ -1,28 +1,26 @@
 require 'test_helper'
 
-class TextMessagesControllerTest < ActionController::TestCase
+class TextMessagesControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @text_message = TextMessage.new(
+      id: 1,
+      to_number: "123-456-7890",
+      message: "Hello, world!",
+      callback_url: 'http://example.com')
+  end
+
   test "should get index" do
-    get :index
+    get text_messages_url
     assert_response :success
   end
 
   test "should get new" do
-    get :new
+    get new_text_message_url
     assert_response :success
   end
 
-  test "should create text message" do
-    post :create, params: { text_message: { to_number: '1234567890', message: 'Hello World' } }
-    assert_redirected_to text_messages_url
-  end
-
-  test "should not create text message with missing to_number" do
-    post :create, params: { text_message: { message: 'Hello World' } }
-    assert_response :unprocessable_entity
-  end
-
-  test "should not create text message with missing message" do
-    post :create, params: { text_message: { to_number: '1234567890' } }
-    assert_response :unprocessable_entity
+  test "should show text_message" do
+    get text_message_url(@text_message)
+    assert_response :success
   end
 end

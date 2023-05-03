@@ -2,9 +2,9 @@
   <div class="row mt-5">
     <% if @text_provider.errors.any? %>
       <div class="col-12 text-center">
-        <div class='display_errors'><%= @text_provider.errors.messages %></div>
-        <div><%= link_to 'New Provider',
-                          new_text_provider_path,
+        <%= render 'errors' %>
+        <div class='mt-5'><%= link_to 'Back to Providers',
+                          text_providers_path,
                           class: 'btn btn-primary' %></div>
       </div>
     <% else %>

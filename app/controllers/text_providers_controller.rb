@@ -18,7 +18,7 @@ class TextProvidersController < ApplicationController
     if @text_provider.save
       render action: :index, layout: 'application'
     else
-      @text_provider.errors.add(:base, 'there was a problem, please try again')
+      @text_provider.errors.add(:base, 'There was a problem, please try again')
       render action: :show, layout: 'application'
     end
   end
@@ -30,8 +30,12 @@ class TextProvidersController < ApplicationController
 
   def update_provider
     @text_provider = TextProvider.find_by(id: params[:text_provider_id])
-    @text_provider.update_attributes!(text_provider_params)
-    render action: :index, layout: 'application'
+     if @text_provider.update(text_provider_params)
+      render action: :index, layout: 'application'
+    else
+      @text_provider.errors.add(:base, 'There was a problem, please try again')
+      render action: :show, layout: 'application'
+    end
   end
 
   def delete_provider
