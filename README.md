@@ -98,6 +98,9 @@ You will need to replace 'your_ngrok_url' with the one from your ngrok session a
   note: Rails objected to a state named 'invalid' so I renamed it 'number_invalid' after it came in.
 **TextProviderStates:** online, offline
 
+### Pagination
+- I added Pagination to the text_message index page in case you got a little trigger happy with your messages.
+
 ### Providers
 - I thought that you might want to add more Providers one day...  or one might quit working unexpectedly for a day, or a week, or forever.  So I built in some flexibility.  You can add, edit and delete Providers.  You can toggle them as Active or not.  If they are not Active they will not be used.  You can adjust their message allocation.  The Provider selection is based on striving to get their current count equal to their allocation of the current total count.  That said...  if a provider goes down for a while and the other providers get a lot of messages, the one that was down will get all of the messages when they are back up.  To solve this issue you can hit the "Reset Providers" button on the Providers page.  This will reset the counts to 0 and the messages will distribute correctly based on the allocations of the Active providers.
 
