@@ -6,23 +6,11 @@ Here are the steps to get the Service running.
 
 
 
-## Open a terminal window and run the following commands to clone the app locally.
- 
- `git clone https://github.com/Glane/glb_texting.git`
- 
- `cd glb_texting`
- 
- `bundle install`
- 
- `yarn`
- 
- `rails assets:precompile`
- 
- `rails db:migrate`
- 
- `rails server`
- 
+## Open a terminal window. 
+Run the following line of commands to clone the app locally and start the rails server.
 
+`git clone https://github.com/Glane/glb_texting.git && cd glb_texting && bundle install && yarn && rails assets:precompile && rails db:migrate && rails server
+`
 
 ## Set up Ngrok
 
@@ -49,13 +37,19 @@ Open a browser and proceed to http://localhost:3000, Voila! (hopefully you see s
 
 ## Set up Providers
 
-Before you start sending messages you need to set up your Providers.  Click the 'Manage Providers' button.  Then the 'New Provider' button.  Please enter the following info to add two Providers.  Don't worry, you can edit them if you make a mistake.
+Before you start sending messages you need to set up your Providers.  Click the 'Manage Providers', then the 'New Provider' buttons to enter the following two New Providers OR you can run the command below in a rails console.
+
 
 1 - name: 'Provider 1' url: 'https://mock-text-provider.parentsquare.com/provider1' allocation: 0.3 active: checked, count: 0
 
 
 2 - name: 'Provider 2' url: 'https://mock-text-provider.parentsquare.com/provider2' allocation: 0.7 active: checked, count: 0
 
+OR
+
+
+`TextProvider.create(name: "Provider 1", allocation: 0.3, url: "https://mock-text-provider.parentsquare.com/provider1", count: 0); TextProvider.create(name: "Provider 2", allocation: 0.3, url: "https://mock-text-provider.parentsquare.com/provider2", count: 0)
+`
 
 ## Messages - UI
 
